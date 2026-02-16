@@ -1,5 +1,20 @@
-const list = async () => {
-    // Write your code here 
+import { rm, access } from 'fs/promises';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const remove = async () => {
+    const filePath = join(__dirname, 'files', 'fileToRemove.txt');
+
+    try {
+        await access(filePath);
+    } catch {
+        throw new Error('Операция гг');
+    }
+
+    await rm(filePath);
 };
 
-await list();
+await remove();
