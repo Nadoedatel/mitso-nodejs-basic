@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const spawnChildProcess = async (args) => {
-    const scriptPath = join(__dirname, 'script.js');
+    const scriptPath = join(__dirname, 'files', 'script.js');
 
     const child = spawn('node', [scriptPath, ...args], {
         stdio: ['pipe', 'pipe', 'inherit']
