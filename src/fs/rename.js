@@ -12,14 +12,14 @@ const rename = async () => {
     try {
         await access(oldPath);
     } catch {
-        throw new Error('Операция гг');
+        throw new Error('FS operation failed');
     }
 
     try {
         await access(newPath);
-        throw new Error('Операция гг');
+        throw new Error('FS operation failed');
     } catch (err) {
-        if (err.message === 'Операция гг') {
+        if (err.message === 'FS operation failed') {
             throw err;
         }
         await fsRename(oldPath, newPath);

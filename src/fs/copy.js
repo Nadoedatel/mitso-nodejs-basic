@@ -12,14 +12,14 @@ const copy = async () => {
     try {
         await access(srcPath);
     } catch {
-        throw new Error('Операция гг');
+        throw new Error('FS operation failed');
     }
 
     try {
         await access(destPath);
-        throw new Error('Операция гг');
+        throw new Error('FS operation failed');
     } catch (err) {
-        if (err.message === 'Операция гг') {
+        if (err.message === 'FS operation failed') {
             throw err;
         }
         await cp(srcPath, destPath, { recursive: true });

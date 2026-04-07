@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const calculateHash = async () => {
-    const filePath = join(__dirname, 'fileToCalculateHashFor.txt');
+    const filePath = join(__dirname, 'files', 'fileToCalculateHashFor.txt');
 
     return new Promise((resolve, reject) => {
         const hash = createHash('sha256');

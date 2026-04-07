@@ -11,7 +11,7 @@ const remove = async () => {
     try {
         await access(filePath);
     } catch {
-        throw new Error('Операция гг');
+        throw new Error('FS operation failed');
     }
 
     await rm(filePath);

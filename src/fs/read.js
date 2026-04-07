@@ -1,20 +1,21 @@
-import { rm, access } from 'fs/promises';
+import { readFile, access } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const remove = async () => {
-    const filePath = join(__dirname, 'files', 'fileToRemove.txt');
+const read = async () => {
+    const filePath = join(__dirname, 'files', 'fileToRead.txt');
 
     try {
         await access(filePath);
     } catch {
-        throw new Error('Операция гг');
+        throw new Error('FS operation failed');
     }
 
-    await rm(filePath);
+    const content = await readFile(filePath, 'utf-8');
+    console.log(content);
 };
 
-await remove();
+await read();
